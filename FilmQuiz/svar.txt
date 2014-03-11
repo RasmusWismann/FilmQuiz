@@ -1,0 +1,5 @@
+﻿Hvad hedder Wismann til fornavn?;Rasmus;Sebastian;Kasper;Emil;Navne
+Hvad hedder Valdemar til fornavn?;Hans;Peter;Lars;Benjamin;Navne
+Hvad hedder Phillip til efternavn?;Velando;Larsen;Petersen;Bilenberg;Navne
+Hvor bor Alexander?;Amager;Sorø;Slagelse;Lyngby;Steder
+Hvor bor Valdemar?;Slagelse;Sorø;Amager;Lyngby;Steder
