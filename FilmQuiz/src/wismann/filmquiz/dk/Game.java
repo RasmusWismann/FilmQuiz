@@ -8,10 +8,12 @@ public class Game {
 	private ArrayList<Player> players;
 	private Map<Category, List<Question>> questions;
 	private int turn;
+	private int gameLength;
 	
-	public Game(int players) {
-		
+	public Game(int players, int gameLength) {
+		this.gameLength = gameLength;
 		this.players = new ArrayList<Player>();
+		
 		for (int i=1; i<=players; i++) {
 			this.players.add(new Player(i));
 		}
@@ -52,11 +54,24 @@ public class Game {
 		return question;
 	}
 	
+	public boolean AnswerQuestion(Question q, String answer){
+		if (q.getAnswer().equals(answer)) {
+			players.get(getTurn()-1).addPoints(1);
+			nextTurn();
+			return true;
+		}
+		else {
+			nextTurn();
+			return false;
+		}
+	}
+	
+	
 	public int getTurn() {
 		return turn;
 	}
 	
-	public void nextTurn() {
+	private void nextTurn() {
 		if(turn < players.size()) {
 			turn++;
 		}
@@ -65,6 +80,15 @@ public class Game {
 		}
 	}
 	
+	public List<Player> getPlayers() {
+		return players;
+	}
+
+	public int getGameLength() {
+		return gameLength;
+	}
+
+
 	
 
 	

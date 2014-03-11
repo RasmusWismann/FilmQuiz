@@ -13,12 +13,23 @@ public class Question {
 	
 	private static Map<Category, List<Question>> QUESTIONS;
 	
-	public Question(String question, String answer, ArrayList<String> options, Category category) {
+	public Question(String question, String answer, ArrayList<String> extraAnswers, Category category) {
 		this.question = question;
-		this.answer = answer;
-		this.options = options;
 		this.category = category;
+		this.answer = answer;
+		this.options = extraAnswers;
+		addAnswerToOptions();
+		
 		addQuestion(this);
+	}
+	
+	private void addAnswerToOptions() {
+		int minimum = 0;
+		int maximum = options.size();
+		int random = minimum + (int)(Math.random()*maximum);
+		
+		// Insert the answer at random position
+		options.add(random, answer);
 	}
 	
 	public String getQuestion() {
@@ -75,9 +86,6 @@ public class Question {
 		return options;
 	}
 
-	public void setOptions(ArrayList<String> options) {
-		this.options = options;
-	}
 	
 	
 }
